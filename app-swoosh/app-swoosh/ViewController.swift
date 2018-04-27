@@ -17,9 +17,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    @IBAction func unwindFromSkillVC(unwinedSegue: UIStoryboardSegue){
+        
     }
 
 
