@@ -20,24 +20,31 @@ class LeagueVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       player = Player()
+            player = Player()
     }
 
+    
     @IBAction func onMensTapped(_ sender: Any) {
-        player.desiredLeague = "mens"
-        nextBtn.isEnabled = true
+        selectLeague(LeagueType: "mens")
     }
     
     @IBAction func onWomensTapped(_ sender: Any) {
-        player.desiredLeague = "womens"
-        nextBtn.isEnabled = true
+        selectLeague(LeagueType: "womens")
     }
     
     @IBAction func onCoedTapped(_ sender: Any) {
-        player.desiredLeague = "coed"
+        selectLeague(LeagueType: "coed")
+    }
+    
+    func selectLeague(LeagueType: String){
+        player.desiredLeague = LeagueType
         nextBtn.isEnabled = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let skillVC = segue.destination as? SkillVC{
+            skillVC.player = player
+        }
+    }
     
 }
